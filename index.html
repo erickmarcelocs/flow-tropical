@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Flow Tropical Wear | Moda praia</title>
+<meta name="description" content="Flow Tropical Wear: biquínis, saídas, bodys e peças de crochê para o seu verão. Peça pelo WhatsApp.">
+<link rel="icon" href="fotos/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --verde:#07110a; --verde2:#0e1f13; --oliva:#a3b36f; --creme:#f4efe3; --areia:#e8dfcb; --tinta:#1b261d; --suave:#5d6b5f;
+  --serif:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+  --sans:"Montserrat","Segoe UI",Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{font-family:var(--sans);font-size:16px;line-height:1.65;color:var(--tinta);background:var(--creme);padding-top:env(safe-area-inset-top,0px)}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--oliva);outline-offset:3px}
+.wrap{width:min(1180px,92%);margin:0 auto}
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.02}
+.eyebrow{font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;color:var(--oliva);font-weight:600}
+
+.btn{display:inline-block;text-decoration:none;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;padding:1rem 1.8rem;border:1.5px solid var(--oliva);background:var(--oliva);color:var(--verde);transition:background .2s,color .2s}
+.btn:hover{background:transparent;color:var(--oliva)}
+.btn.claro{background:transparent;color:var(--creme);border-color:var(--creme)}
+.btn.claro:hover{background:var(--creme);color:var(--verde)}
+
+header{position:sticky;top:0;z-index:20;background:rgba(7,17,10,.94);backdrop-filter:blur(8px);color:var(--creme)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px;gap:1rem}
+.marca{display:flex;align-items:center;gap:.7rem;text-decoration:none}
+.marca img{width:44px;height:44px;border-radius:50%}
+.marca span{font-family:var(--serif);font-size:1.5rem;letter-spacing:.04em}
+nav ul{display:flex;gap:2rem;list-style:none}
+nav a{text-decoration:none;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase}
+nav a:hover{color:var(--oliva)}
+.nav .btn{padding:.7rem 1.1rem;font-size:.68rem}
+@media(max-width:860px){nav ul{display:none}}
+
+.hero{background:var(--verde);color:var(--creme);padding:clamp(3rem,7vw,6rem) 0 clamp(3rem,7vw,5.5rem);overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4rem);align-items:center}
+.hero h1{font-size:clamp(3.4rem,8.5vw,6.6rem);margin:1rem 0 1.4rem}
+.hero h1 em{color:var(--oliva);font-style:italic}
+.hero p{max-width:40ch;color:#cfd6c6;margin-bottom:2.2rem}
+.acoes{display:flex;flex-wrap:wrap;gap:1rem}
+.colagem{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;gap:12px}
+.colagem img{width:100%;height:100%;object-fit:cover}
+.colagem .a{grid-row:span 2;aspect-ratio:3/5}
+.colagem .b,.colagem .c{aspect-ratio:1/1}
+@media(max-width:860px){.hero .wrap{grid-template-columns:1fr}.colagem{order:-1}}
+
+.faixa{background:var(--oliva);color:var(--verde);padding:.9rem 0;text-align:center;font-size:.74rem;letter-spacing:.26em;text-transform:uppercase;font-weight:600}
+.faixa span{margin:0 1rem;white-space:nowrap;display:inline-block}
+
+section{padding:clamp(3.5rem,8vw,6.5rem) 0}
+.titulo{text-align:center;margin-bottom:2.2rem}
+.titulo h2{font-size:clamp(2.6rem,6vw,4.2rem);margin-top:.6rem}
+.titulo p{max-width:48ch;margin:.9rem auto 0;color:var(--suave)}
+
+.filtros{display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem;margin-bottom:2.4rem}
+.filtros button{font:inherit;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;padding:.75rem 1.3rem;background:transparent;border:1.5px solid var(--tinta);color:var(--tinta);cursor:pointer}
+.filtros button[aria-pressed="true"]{background:var(--verde);color:var(--creme);border-color:var(--verde)}
+.grade{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:2rem 1.4rem}
+.card[hidden]{display:none}
+.foto{aspect-ratio:4/5;overflow:hidden;background:var(--areia)}
+.foto img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.card:hover img{transform:scale(1.05)}
+.info{padding-top:1rem}
+.info h3{font-size:1.65rem;margin-bottom:.35rem}
+.link{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;text-decoration:none;border-bottom:1.5px solid var(--oliva);padding-bottom:2px}
+.link:hover{color:var(--suave)}
+
+.brasil{background:var(--verde2);color:var(--creme)}
+.brasil .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
+.brasil h2{font-size:clamp(2.8rem,6.5vw,4.8rem);margin:.8rem 0 1.2rem}
+.brasil p{color:#cfd6c6;max-width:42ch;margin-bottom:2rem}
+.par{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.par img{aspect-ratio:3/4;width:100%;object-fit:cover}
+.par img:last-child{margin-top:2rem}
+@media(max-width:860px){.brasil .wrap{grid-template-columns:1fr}}
+
+.passos{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2rem;text-align:center}
+.passo b{display:block;font-family:var(--serif);font-size:3.4rem;color:var(--oliva);line-height:1}
+.passo h3{font-size:1.6rem;margin:.4rem 0 .5rem}
+.passo p{color:var(--suave);font-size:.95rem}
+
+.contato{background:var(--verde);color:var(--creme);text-align:center}
+.contato h2{font-size:clamp(2.8rem,7vw,5rem);margin:.8rem 0 1rem}
+.contato p{max-width:44ch;margin:0 auto 2rem;color:#cfd6c6}
+.contato .acoes{justify-content:center}
+.dados{margin-top:2.4rem;font-size:.9rem;color:#aab5a3}
+footer{background:#040a06;color:#7d8a78;text-align:center;font-size:.8rem;padding:1.6rem 0 calc(1.6rem + env(safe-area-inset-bottom,0px))}
+
+.zap{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:30;background:var(--oliva);color:var(--verde);text-decoration:none;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;padding:.95rem 1.2rem;box-shadow:0 6px 18px rgba(0,0,0,.35)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="marca" href="#topo" aria-label="Flow Tropical Wear, início">
+      <img src="fotos/logo.png" alt="Logo Flow Tropical Wear">
+      <span>Flow</span>
+    </a>
+    <nav aria-label="Principal">
+      <ul>
+        <li><a href="#colecao">Coleção</a></li>
+        <li><a href="#brasil">Brasil</a></li>
+        <li><a href="#como-comprar">Como comprar</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+    <a class="btn" href="https://wa.me/558896557962?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Flow%20Tropical%20Wear." target="_blank" rel="noopener">WhatsApp</a>
+  </div>
+</header>
+
+<main id="topo">
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Tropical wear</p>
+        <h1>Moda praia com <em>flow</em> de verão</h1>
+        <p>Biquínis, saídas, bodys e peças de crochê para o seu dia de sol. Escolha a sua e peça direto pelo WhatsApp.</p>
+        <div class="acoes">
+          <a class="btn" href="#colecao">Ver coleção</a>
+          <a class="btn claro" href="https://wa.me/558896557962?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Flow%20Tropical%20Wear." target="_blank" rel="noopener">Falar com a Flow</a>
+        </div>
+      </div>
+      <div class="colagem">
+        <img class="a" src="fotos/biquini-pink.jpg" alt="Modelo usando biquíni pink">
+        <img class="b" src="fotos/biquini-turquesa.jpg" alt="Biquíni turquesa sobre palha">
+        <img class="c" src="fotos/conjunto-croche.jpg" alt="Conjunto de crochê off white">
+      </div>
+    </div>
+  </div>
+
+  <div class="faixa"><span>Biquínis</span>·<span>Crochê</span>·<span>Bodys</span>·<span>Saídas</span>·<span>Pedido pelo WhatsApp</span></div>
+
+  <section id="colecao">
+    <div class="wrap">
+      <div class="titulo">
+        <p class="eyebrow">Coleção</p>
+        <h2>Escolha a sua peça</h2>
+        <p>Toque em “Pedir no WhatsApp” e já mandamos a peça escolhida na conversa.</p>
+      </div>
+      <div class="filtros" role="group" aria-label="Filtrar por categoria">
+        <button type="button" data-f="todos" aria-pressed="true">Todos</button>
+        <button type="button" data-f="biquinis" aria-pressed="false">Biquínis</button>
+        <button type="button" data-f="croche" aria-pressed="false">Crochê</button>
+        <button type="button" data-f="bodys" aria-pressed="false">Bodys</button>
+      </div>
+      <div class="grade">
+<article class="card" data-cat="biquinis">
+  <div class="foto"><img src="fotos/biquini-turquesa.jpg" alt="Biquíni turquesa de tecido liso sobre trama de palha" loading="lazy"></div>
+  <div class="info"><h3>Biquíni Turquesa</h3><a class="link" href="https://wa.me/558896557962?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Flow%20Tropical%20Wear%20e%20quero%20saber%20sobre%3A%20Biqu%C3%ADni%20Turquesa." target="_blank" rel="noopener">Pedir no WhatsApp <span aria-hidden="true">→</span></a></div>
+</article>
+<article class="card" data-cat="biquinis">
+  <div class="foto"><img src="fotos/biquini-verde-musgo.jpg" alt="Biquíni verde musgo com tiras finas" loading="lazy"></div>
+  <div class="info"><h3>Biquíni Verde Musgo</h3><a class="link" href="https://wa.me/558896557962?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Flow%20Tropical%20Wear%20e%20quero%20saber%20sobre%3A%20Biqu%C3%ADni%20Verde%20Musgo." target="_blank" rel="noopener">Pedir no WhatsApp <span aria-hidden="true">→</span></a></div>
+</article>
+<article class="card" data-cat="biquinis">
+  <div class="foto"><img src="fotos/biquini-vinho.jpg" alt="Biquíni cor vinho de cortininha" loading="lazy"></div>
+  <div class="info"><h3>Biquíni Vinho</h3><a class="link" href="https://wa.me/558896557962?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Flow%20Tropical%20Wear%20e%20quero%20saber%20sobre%3A%20Biqu%C3%ADni%20Vinho." target="_blank" rel="noopener">Pedir no WhatsApp <span aria-hidden="true">→</span></a></div>
+</article>
+<article class="card" data-cat="biquinis">
+  <div class="foto"><img src="fotos/biquini-azul-royal.jpg" alt="Biquíni azul royal em manequim ao lado de plantas" loading="lazy"></div>
+  <div class="info"><h3>Biquíni Azul Royal</h3><a class="link" href="https://wa.me/558896557962?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Flow%20Tropical%20Wear%20e%20quero%20saber%20sobre%3A%20Biqu%C3%ADni%20Azul%20Royal." target="_blank" rel="noopener">Pedir no WhatsApp <span aria-hidden="true">→</span></a></div>
+</article>
+<article class="card" data-cat="biquinis">
+  <div class="foto"><img src="fotos/biquini-preto-palha.jpg" alt="Biquíni preto sobre trama de palha com flores de ráfia" loading="lazy"></div>
+  <div class="info"><h3>Biquíni Preto</h3><a class="link" href="https://wa.me/558896557962?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Flow%20Tropical%20Wear%20e%20quero%20saber%20sobre%3A%20Biqu%C3%ADni%20Preto." target="_blank" rel="noopener">Pedir no WhatsApp <span aria-hidden="true">→</span></a></div>
+</article>
+<article class="card" data-cat="biquinis">
+  <div class="foto"><img src="fotos/biquini-preto-costas.jpg" alt="Modelo de costas usando biquíni preto com amarração" loading="lazy"></div>
+  <div class="info"><h3>Biquíni Preto com Amarração</h3><a class="link" href="https://wa.me/558896557962?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Flow%20Tropical%20Wear%20e%20quero%20saber%20sobre%3A%20Biqu%C3%ADni%20Preto%20com%20Amarra%C3%A7%C3%A3o." target="_blank" rel="noopener">Pedir no WhatsApp <span aria-hidden="true">→</span></a></div>
+</article>
+<article class="card" data-cat="biquinis">
+  <div class="foto"><img src="fotos/biquini-preto-frente.jpg" alt="Modelo usando biquíni preto de cortininha" loading="lazy"></div>
+  <div class="info"><h3>Biquíni Preto de Cortininha</h3><a class="link" href="https://wa.me/558896557962?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Flow%20Tropical%20Wear%20e%20quero%20saber%20sobre%3A%20Biqu%C3%ADni%20Preto%20de%20Cortininha." target="_blank" rel="noopener">Pedir no WhatsApp <span aria-hidden="true">→</span></a></div>
+</article>
+<article class="card" data-cat="biquinis">
+  <div class="foto"><img src="fotos/biquini-pink.jpg" alt="Modelo usando biquíni pink" loading="lazy"></div>
+  <div class="info"><h3>Biquíni Pink</h3><a class="link" href="https://wa.me/558896557962?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Flow%20Tropical%20Wear%20e%20quero%20saber%20sobre%3A%20Biqu%C3%ADni%20Pink." target="_blank" rel="noopener">Pedir no WhatsApp <span aria-hidden="true">→</span></a></div>
+</article>
+<article class="card" data-cat="biquinis">
+  <div class="foto"><img src="fotos/biquini-vermelho-saida.jpg" alt="Modelo usando biquíni vermelho e saída de tule branca" loading="lazy"></div>
+  <div class="info"><h3>Biquíni Vermelho com Saída Branca</h3><a class="link" href="https://wa.me/558896557962?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Flow%20Tropical%20Wear%20e%20quero%20saber%20sobre%3A%20Biqu%C3%ADni%20Vermelho%20com%20Sa%C3%ADda%20Branca." target="_blank" rel="noopener">Pedir no WhatsApp <span aria-hidden="true">→</span></a></div>
+</article>
+<article class="card" data-cat="biquinis">
+  <div class="foto"><img src="fotos/biquini-brasil.jpg" alt="Biquíni verde com detalhes amarelos e bandeira do Brasil" loading="lazy"></div>
+  <div class="info"><h3>Biquíni Brasil</h3><a class="link" href="https://wa.me/558896557962?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Flow%20Tropical%20Wear%20e%20quero%20saber%20sobre%3A%20Biqu%C3%ADni%20Brasil." target="_blank" rel="noopener">Pedir no WhatsApp <span aria-hidden="true">→</span></a></div>
+</article>
+<article class="card" data-cat="biquinis">
+  <div class="foto"><img src="fotos/biquini-amarelo-verde.jpg" alt="Biquíni amarelo com acabamento verde" loading="lazy"></div>
+  <div class="info"><h3>Biquíni Amarelo e Verde</h3><a class="link" href="https://wa.me/558896557962?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Flow%20Tropical%20Wear%20e%20quero%20saber%20sobre%3A%20Biqu%C3%ADni%20Amarelo%20e%20Verde." target="_blank" rel="noopener">Pedir no WhatsApp <span aria-hidden="true">→</span></a></div>
+</article>
+<article class="card" data-cat="bodys">
+  <div class="foto"><img src="fotos/body-azul.jpg" alt="Modelo usando body azul com vivo branco e saída de tule" loading="lazy"></div>
+  <div class="info"><h3>Body Azul com Detalhe Branco</h3><a class="link" href="https://wa.me/558896557962?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Flow%20Tropical%20Wear%20e%20quero%20saber%20sobre%3A%20Body%20Azul%20com%20Detalhe%20Branco." target="_blank" rel="noopener">Pedir no WhatsApp <span aria-hidden="true">→</span></a></div>
+</article>
+<article class="card" data-cat="croche">
+  <div class="foto"><img src="fotos/conjunto-croche.jpg" alt="Modelo usando conjunto de crochê off white com chapéu" loading="lazy"></div>
+  <div class="info"><h3>Conjunto de Crochê Cropped e Short</h3><a class="link" href="https://wa.me/558896557962?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Flow%20Tropical%20Wear%20e%20quero%20saber%20sobre%3A%20Conjunto%20de%20Croch%C3%AA%20Cropped%20e%20Short." target="_blank" rel="noopener">Pedir no WhatsApp <span aria-hidden="true">→</span></a></div>
+</article>
+<article class="card" data-cat="croche">
+  <div class="foto"><img src="fotos/saias-croche.jpg" alt="Duas saias de crochê, uma preta e uma off white, em cabides" loading="lazy"></div>
+  <div class="info"><h3>Saias de Crochê Preta e Off White</h3><a class="link" href="https://wa.me/558896557962?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Flow%20Tropical%20Wear%20e%20quero%20saber%20sobre%3A%20Saias%20de%20Croch%C3%AA%20Preta%20e%20Off%20White." target="_blank" rel="noopener">Pedir no WhatsApp <span aria-hidden="true">→</span></a></div>
+</article>
+      </div>
+    </div>
+  </section>
+
+  <section id="brasil" class="brasil">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Verde e amarelo</p>
+        <h2>Coleção Brasil</h2>
+        <p>Biquínis nas cores da nossa bandeira, com acabamento colorido e a bandeirinha bordada. Perfeitos para torcer e curtir a praia.</p>
+        <a class="btn" href="https://wa.me/558896557962?text=Ol%C3%A1%21%20Quero%20saber%20sobre%20os%20biqu%C3%ADnis%20da%20Cole%C3%A7%C3%A3o%20Brasil." target="_blank" rel="noopener">Quero o meu</a>
+      </div>
+      <div class="par">
+        <img src="fotos/biquini-brasil.jpg" alt="Biquíni verde e amarelo com bandeira do Brasil" loading="lazy">
+        <img src="fotos/biquini-amarelo-verde.jpg" alt="Biquíni amarelo com acabamento verde" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <section id="como-comprar">
+    <div class="wrap">
+      <div class="titulo">
+        <p class="eyebrow">Como comprar</p>
+        <h2>Simples, pelo WhatsApp</h2>
+      </div>
+      <div class="passos">
+        <div class="passo"><b>1</b><h3>Escolha</h3><p>Veja a coleção e toque na peça que você gostou.</p></div>
+        <div class="passo"><b>2</b><h3>Chame a Flow</h3><p>A conversa abre com o nome da peça já escrito.</p></div>
+        <div class="passo"><b>3</b><h3>Finalize</h3><p>Combine tamanho, pagamento e entrega direto com a gente.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato" class="contato">
+    <div class="wrap">
+      <p class="eyebrow">Contato</p>
+      <h2>Vamos montar o seu verão</h2>
+      <p>Tire dúvidas, peça a sua peça ou acompanhe as novidades no Instagram.</p>
+      <div class="acoes">
+        <a class="btn" href="https://wa.me/558896557962?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Flow%20Tropical%20Wear." target="_blank" rel="noopener">Chamar no WhatsApp</a>
+        <a class="btn claro" href="https://instagram.com/flow_tropicall_wear" target="_blank" rel="noopener">@flow_tropicall_wear</a>
+      </div>
+      <p class="dados">WhatsApp: (88) 9655-7962</p>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">© 2026 Flow Tropical Wear. Todos os direitos reservados.</div></footer>
+
+<a class="zap" href="https://wa.me/558896557962?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Flow%20Tropical%20Wear." target="_blank" rel="noopener" aria-label="Falar no WhatsApp">WhatsApp</a>
+
+<script>
+(function(){
+  var botoes=document.querySelectorAll('.filtros button');
+  var cards=document.querySelectorAll('.card');
+  botoes.forEach(function(b){
+    b.addEventListener('click',function(){
+      var f=b.getAttribute('data-f');
+      botoes.forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});
+      cards.forEach(function(c){c.hidden=!(f==='todos'||c.getAttribute('data-cat')===f)});
+    });
+  });
+})();
+</script>
+</body>
+</html>
